@@ -2,7 +2,7 @@ $(function(){
 
 	var timer; //tiene que ser global
 	var boltTimeMark = 9.58;
-	var vBolt = 100/boltTimeMark;
+	var vBolt = 100/boltTimeMark; // distancia/tiempo
 	var $bolt = $('#bolt');
 	var $me = $('#me');
 	var $timer = $('#timer');
@@ -22,7 +22,7 @@ $(function(){
 		}
 		timer = setInterval(function() {
 			var t = (Date.now() - startTimestamp)/1000;
-			var xBolt = vBolt*t; //recalculamos x que es el desplazamieno total.
+			var xBolt = vBolt*t; //recalculamos, es el desplazamieno total. Se va a desplazar velocidad * tiempo
 			var xMe = vMe*t; 
 			if(xBolt > 100) {
 				xBolt = 100;
