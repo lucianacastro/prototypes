@@ -50,12 +50,39 @@ label.user-timemark {
 	position: absolute;
 	left: 20px;
 	right: 20px;
-	height: 140px;
+	height: 180px;
 	bottom: 20px;
 	box-sizing: border-box;
 	padding-left: 80px;
-	background: url(track-cover.jpg);
+}
 
+.track:before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    height: 180px;
+    width: 80px;
+    background: url(images/track-start.png);
+}
+
+.track:after {
+	content: '';
+    position: absolute;
+    top: 1px;
+    right: 0;
+    height: 180px;
+    width: 70px;
+    background: url(images/track-finish.png);
+}
+
+.track-bg {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 80px;
+	right: 70px;
+	background: url(images/track-repeat-x.png);
 }
 
 #bolt,
@@ -68,12 +95,13 @@ label.user-timemark {
 }
 
 #bolt {
-	background: url(bolt.png);
+	background: url(images/bolt.png);
 	background-size: cover;
+	margin-top: 80px;
 }
 
 #me {
-	background: url(homer.gif);
+	background: url(images/homer.gif);
 	background-size: cover;
 }
 

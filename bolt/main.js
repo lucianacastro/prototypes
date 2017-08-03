@@ -54,3 +54,8 @@ $(function(){
 	});
 
 });
+
+function timeMarkToArray(timeMark) {
+	// espera números entre 0 y 99 con N decimales
+	return (''+timeMark).replace(/^(\d)\./, '0$1.').replace(/\.(\d)$/, '.$10').split('');
+}
