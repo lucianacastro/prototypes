@@ -1,42 +1,164 @@
 .bolt-container {
 	position: relative;
 	width: 100%;
-	height: 350px;
+	height: 500px;
 	box-sizing: border-box;
-	border: 1px solid black;
 	overflow: hidden;
-	padding: 20px;
+	padding: 18px;
+	font-family: 'Roboto', sans-serif;
 }
 
-label.user-timemark {
-	float: left;
-	margin-right: 10px;
-	font-family: arial;
-	font-size: 14px;
-}
-
-#meTimeMark {
-	display: block;
-	width: 135px;
-	padding: 5px;
-	margin: 10px 10px 10px 0;
-}
-
-#start,
-#stop {
+.bolt-container .box-container {
+	display: inline-block;
 	position: relative;
 	float: left;
+	width: 100%;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.bolt-container .box-container .box-title,
+.bolt-container .box-container .box-user-mark,
+.bolt-container .box-container .box-bolt-mark {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 70px;
+	text-transform: uppercase;
+}
+
+.bolt-container .box-container .box-title {
+	background-color: #000000;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 400;
+	padding: 20px 0;
+}
+
+.bolt-container .box-container .box-bolt-mark,
+.bolt-container .box-container .box-user-mark {
+	background-color: #CCCCCC;
+	padding: 15px 20px 15px 40px;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.bolt-container .box-container .box-bolt-mark {
+	background-color: #39B54A;
+}
+
+.bolt-container .box-container .user-name {
+	line-height: 44px;
+    height: 36px;
+    width: 130px;
+    float: left;
+    margin-right: -130px;
+}
+
+.bolt-container .box-container span.me-mark-text,
+.bolt-container .box-container span.bolt-mark-text {
+	padding-top: 2px;
+    float: left;
+    height: 10px;
+}
+
+.bolt-container .box-container span.me-mark-text {
+	color: #B3B3B3;
+}
+
+.bolt-container .box-container span.bolt-mark-text {
+	color: #39B54A;
+	word-spacing: -1px;
+}
+
+
+.bolt-container .box-container .box-user-mark #meTimeMark {
+	float: right;
+	width: 75px;
+	height: 40px;
+	border: 2px solid #BFBFBF;
+	text-align: center;
+	margin-right: 40px;
+}
+
+.bolt-container .box-container .box-user-mark #me-timer,
+.bolt-container .box-container .box-bolt-mark #bolt-timer {
+	float: right;
+	border: 2px solid #999;
+	text-align: center;
+	background-color: white;
+	overflow: hidden;
+	height: 40px;
+	padding-top: 2px;
+}
+
+.bolt-container .box-container .box-bolt-mark #bolt-timer {
+	border-color: #2B8837; 
+	margin-left: 0;
+}
+
+
+.bolt-container .box-container .box-user-mark #me-timer span,
+.bolt-container .box-container .box-bolt-mark #bolt-timer span {
+	border-right: 1px solid #000000;
+	font-family: 'Roboto', sans-serif;
+	color: #000000;
+	font-size: 32px;
+	font-weight: 700;
+    line-height: 32px;
+    padding: 0 4px 0 4px;
+    margin: 0 -4px;
+}
+
+.bolt-container .box-container .box-user-mark #me-timer span:nth-of-type(3),
+.bolt-container .box-container .box-bolt-mark #bolt-timer span:nth-of-type(3) {
+	border-left: 1px solid black;
+	margin-left: 3px;
+}
+
+.bolt-container .buttons-container {
+	position: relative;
+	border: 1px solid black;
+	overflow: hidden;
+	z-index: 100;
+}
+
+.bolt-container #start,
+.bolt-container #stop {
+	position: relative;
 	width: 80px;
-	height: 30px;
-	padding: 5px 15px;
-	margin-right: 10px;
+	height: 80px;
+	border-radius: 50%;
+	border: 2px solid #999999;
+	padding: 0 15px 5px;
+	margin: 20px 10px 0 4px;
+	z-index: 100;
+	background-color: white;
 }
 
-#start {
-	clear: left;
+.bolt-container #start {
+	display: block;
 }
 
-#timer {
+.bolt-container #start img {
+	margin-top: 18px;
+}
+
+.bolt-container #stop {
+	xdisplay: none;
+}
+
+.bolt-container .text-button {
+	display: block;
+	color: #B3B3B3;
+	font-size: 18px;
+	font-weight: 400;
+	padding: 10px 0;
+}
+
+.bolt-container #timer {
 	position: relative;
 	float: right;
 	width: 150px;
@@ -46,14 +168,15 @@ label.user-timemark {
 	padding: 10px;
 }
 
-.track {
+.bolt-container .track {
 	position: absolute;
 	left: 20px;
 	right: 20px;
 	height: 180px;
-	bottom: 20px;
+	bottom: 25px;
 	box-sizing: border-box;
-	padding-left: 80px;
+	/* padding-left: 50px; /* afecta salida unicamente */
+	padding-left: 150px; /* afecta salida unicamente */
 }
 
 .track:before {
@@ -68,6 +191,7 @@ label.user-timemark {
 
 .track:after {
 	content: '';
+	z-index: -1;
     position: absolute;
     top: 1px;
     right: 0;
@@ -85,23 +209,105 @@ label.user-timemark {
 	background: url(images/track-repeat-x.png);
 }
 
-#bolt,
-#me {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	margin: 20px 0;
-	transform: translateX(-150%);
+.bolt-container ol.meters {
+	position: absolute;
+	display: block;
+	height: 30px;
+	right: 100px;
+	left: 50px;
+	bottom: -15px;
+	color: #B3B3B3;
+	font-size: 20px;
+	font-weight: 400;
 }
 
-#bolt {
+.bolt-container ol.meters li {
+	position: absolute;
+}
+
+.bolt-container ol.meters li:nth-of-type(2) {
+	left: 25%;
+}
+
+.bolt-container ol.meters li:nth-of-type(3) {
+	left: 50%;
+}
+
+.bolt-container ol.meters li:nth-of-type(4) {
+	left: 75%;
+}
+
+.bolt-container ol.meters li:nth-of-type(5) {
+	left: 100%;
+
+}
+
+.bolt-container #bolt,
+.bolt-container #me {
+	width: 120px; /*width 120px*/
+	height: 120px;
+	margin-left: 0; /* fijo */
+}
+
+.bolt-container #bolt {
 	background: url(images/bolt.png);
 	background-size: cover;
-	margin-top: 80px;
+	/*transform: translate(-45%,10%); /* afecta salida y llegada */
+	transform: translate(-77%,10%);
+}
+.bolt-container #bolt.finished {
+	background-image: url(images/bolt2.png);
 }
 
-#me {
-	background: url(images/homer.gif);
+.bolt-container #me {
+	background: url(images/vos.png);
 	background-size: cover;
+	/*transform: translate(-95%,-50%); /* afecta salida y llegada */
+	transform: translate(-125%,-50%); /* afecta salida y llegada */
 }
 
+
+@media screen and (max-width: 720px) {
+	.bolt-container {
+		height: 800px;
+		
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	.bolt-container {
+		height: 800px;
+	}
+
+	.bolt-container .box-container {
+		margin-bottom: 20px;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.bolt-container {
+		zoom: 0.75;
+	}
+}
+
+@media screen and (max-width: 1255px) and (min-width: 1024px){
+	.bolt-container .box-container .box-title,
+	.bolt-container .box-container .box-user-mark,
+	.bolt-container .box-container .box-bolt-mark {
+		zoom: 0.85;
+	}
+
+	.bolt-container .box-container .box-title {
+		font-size: 18px;
+		line-height: 34px;
+	}
+
+	.bolt-container .box-container span.me-mark-text {
+		font-size: 12px;
+	}
+
+	.bolt-container .box-container span.bolt-mark-text {
+		font-size: 12px;
+	}
+
+}
